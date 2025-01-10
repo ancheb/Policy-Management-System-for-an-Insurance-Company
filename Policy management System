@@ -1,0 +1,63 @@
+class Policyholder:
+    def __init__(self, policyholder_id, name, status='active'):
+        self.policyholder_id = policyholder_id
+        self.name = name
+        self.status = status
+
+    def suspend(self):
+        self.status = 'suspended'
+
+    def reactivate(self):
+        self.status = 'active'
+
+    def __str__(self):
+        return f"Policyholder ID: {self.policyholder_id}, Name: {self.name}, Status: {self.status}"
+
+
+class Product:
+    def __init__(self, product_id, name, description):
+        self.product_id = product_id
+        self.name = name
+        self.description = description
+
+    def update(self, name=None, description=None):
+        if name:
+            self.name = name
+        if description:
+            self.description = description
+
+    def __str__(self):
+        return f"Product ID: {self.product_id}, Name: {self.name}, Description: {self.description}"
+
+
+class Payment:
+    def __init__(self, payment_id, amount, policyholder):
+        self.payment_id = payment_id
+        self.amount = amount
+        self.policyholder = policyholder
+
+    def process_payment(self):
+        # Imagine this function processes the payment
+        pass
+
+    def __str__(self):
+        return f"Payment ID: {self.payment_id}, Amount: {self.amount}, Policyholder: {self.policyholder.name}"
+
+
+
+# Create products
+product1 = Product(1, "Health Insurance", "Comprehensive health coverage")
+product2 = Product(2, "Life Insurance", "Life insurance plan")
+
+# Create policyholders
+policyholder1 = Policyholder(1, "Alice Smith")
+policyholder2 = Policyholder(2, "Bob Johnson")
+
+# Process payments for policyholders
+payment1 = Payment(101, 500.0, policyholder1)
+payment2 = Payment(102, 300.0, policyholder2)
+
+# Display policyholders and their paid products
+print(policyholder1)
+print(policyholder2)
+
